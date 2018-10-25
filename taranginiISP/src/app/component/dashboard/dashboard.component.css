@@ -1,0 +1,20 @@
+.data-well{
+    background: cadetblue;
+}
+p{
+    font-family: 'K2D', sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+}
+.paybtn{
+    border-radius:0px;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+.paybtn:hover{
+    border: 1.5px solid black;
+    border-radius:0px;
+    padding-left: 45%;
+    padding-right: 45%;
+}

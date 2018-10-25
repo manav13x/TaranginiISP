@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="well data-well">
+    <p>Our Plans</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let b of services">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <span>Plan is {{b.title}}</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <span>{{b.netSpeed}} Mbps Speed</span><br>
+          <span>{{b.maxUsage}} GB per Month</span><br>
+          <span>Rs {{b.charges}}</span><br>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-danger paybtn" (click)="showAdd(b.title)">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height: 300px;"></div>

@@ -1,0 +1,153 @@
+<div class="container-fluid" style="margin-top:50px;">
+  <div class="col-md-5">
+    <div class="well data-well">
+      <p>
+        <span>Your Plan is {{plan}}</span>
+      </p>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Service Form</div>
+      </div>
+      <div style="padding-top:30px" class="panel-body">
+        <form class="form" #f="ngForm" novalidate (ngSubmit)="f.valid && saveCustomer()">
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="text" class="form-control" id="unm" name="unm" required minlength="5" maxlength="15" [(ngModel)]="customer.Name"
+              #unm=ngModel placeholder="Name" />
+          </div>
+          <div class="alert alert-danger" *ngIf="(unm.errors && (unm.darty || unm.touched))">
+            <p>Please see that Name
+              <strong>
+                <span *ngIf="unm.errors.required">is not left blank</span>
+                <span *ngIf="unm.errors.minlength">is atleast 5 chars in length</span>
+              </strong>
+            </p>
+          </div>
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-phone-alt"></i>
+            </span>
+            <input type="text" class="form-control" id="mno" name="mno" required pattern="\d{10}" [(ngModel)]="customer.mobileNumber"
+              placeholder="Mobile Number" #mno=ngModel />
+          </div>
+          <div class="alert alert-danger" *ngIf="mno.errors && (mno.darty || mno.touched)">
+            <p>Please See that Mobile
+              <strong>
+                <span *ngIf="mno.errors.required">is not left blank</span>
+                <span *ngIf="mno.errors.pattern">is exactly 10 digits</span>
+              </strong>
+            </p>
+          </div>
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <select name="btype" [(ngModel)]="customer.tSlot" #tSlot=ngModel class="form-control" required id="tSlot">
+              <option value="">-------Select------</option>
+              <option value="9AM to 11AM">9AM to 11AM</option>
+              <option value="1PM to 5PM">1PM to 5PM</option>
+            </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="tSlot.errors && (tSlot.darty || tSlot.touched)">
+            <p>Please see that Slot
+              <strong>
+                <span *ngIf="tSlot.errors.required">is not Empty</span>
+              </strong>
+            </p>
+          </div>
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <input class="form-control" id="add" name="add" required #add=ngModel placeholder="Address" [(ngModel)]="customer.address"
+            />
+          </div>
+          <div class="alert alert-danger" *ngIf="add.errors && (tSlot.darty || add.touched)">
+            <p>Please see that Address
+              <strong>
+                <span *ngIf="add.errors.required">is not Empty</span>
+              </strong>
+            </p>
+          </div>
+          <div style="margin-top:10px" class="form-group">
+            <!-- Button -->
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <button type="submit" class="btn btn-success" style="padding-left:30%;padding-right:30%">Submit</button>
+                </div>
+                <div class="col-sm-6">
+                  <button type="reset" class="btn btn-warning" style="padding-left:30%;padding-right:30%" (click)="reset()">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccess">Customer Registered Successfully!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:140px"></div>
+<!--
+<h3>
+  New Customer
+</h3>
+<form name="form" #f=ngForm novalidate (ngSubmit)="f.form.valid && saveCustomer()">
+  <h3>Customer</h3>
+  <table>
+    <tr>
+      <th>Service Plan#</th>
+      <td>
+        <span>{{plan}}</span>
+      </td>
+    </tr>
+    <tr>
+      <th>Customer Name</th>
+      <td>
+        <input name="bename" type="text" [(ngModel)]="customer.Name" #Name=ngModel required minlength="5" maxlength="30" />
+        <ul [hidden]=Name.valid>
+          <li [hidden]=Name.required>Cannot Be Empty</li>
+          <li [hidden]=Name.minlength>Cannot be less than 5 chars in length</li>
+          <li [hidden]=Name.maxlength>Cannot be more than 30 chars in length</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Mobile Number</th>
+      <td>
+        <input name="mnob" type="string" [(ngModel)]="customer.mobileNumber" />
+      </td>
+    </tr>
+    <tr>
+      <th>Time Slot</th>
+      <td>
+        <select name="btype" [(ngModel)]="customer.tSlot" #tSlot=ngModel required>
+          <option value="">-------Select------</option>
+          <option value="9AM to 11AM">9AM to 11AM</option>
+          <option value="1PM to 5PM">1PM to 5PM</option>
+        </select>
+
+        <ul [hidden]=tSlot.valid>
+          <li>please select one from list</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>
+        <input name="mnob" type="string" [(ngModel)]="customer.address" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: right">
+        <button class="btn">Save</button>
+      </td>
+    </tr>
+  </table>
+</form>
+-->

@@ -1,0 +1,103 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-top:5px">
+  <div class="container">
+    <a routerLink='' class="navbar-brand" style="padding-top: 6px;">
+      <span>
+        <img src="../favicon.ico" style="width:35px;height:35px;" />
+      </span>
+      <strong style="color: goldenrod">TaranginiISP</strong>
+    </a>
+    <ul class="nav navbar-nav navbar-left">
+      <li>
+        <a routerLink='/'>
+          <span class="glyphicon glyphicon-home"></span>&nbsp;
+          <strong style="color: goldenrod">Home</strong>
+        </a>
+      </li>&nbsp; &nbsp;
+    </ul>
+  </div>
+</nav>
+<div class="well data-well">
+  <form class="form-inline">
+  <button type="button" class="btn btn-info" (click)="doChangeField('charges',srch)">Charges</button>
+  <button type="button" class="btn btn-info"  (click)="doChangeField('maxusage',srch)">Max Usage</button>
+  <button type="button" class="btn btn-info" (click)="doChangeField('netspeed',srch)">Net Speed</button>
+  <input type="email" name="srchValue" class="form-control" 
+  [(ngModel)]="srchValue"
+  required #srch placeholder="Charges" style="max-width: 200px;"/>
+    <button class="btn btn-primary" (click)="doSearch()">
+        <span class="glyphicon glyphicon-search"></span>
+    </button>
+</form>     
+</div>
+<router-outlet></router-outlet>
+
+<footer id="myFooter" class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <h2 class="logo">
+          <a href="#">Tarangini</a>
+        </h2>
+      </div>
+      <div class="col-sm-2">
+        <h5>Get started</h5>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Sign up</a>
+          </li>
+          <li>
+            <a href="#">Downloads</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h5>About us</h5>
+        <ul>
+          <li>
+            <a href="#">Company Information</a>
+          </li>
+          <li>
+            <a href="#">Contact us</a>
+          </li>
+          <li>
+            <a href="#">Reviews</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <h5>Support</h5>
+        <ul>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+          <li>
+            <a href="#">Help desk</a>
+          </li>
+          <li>
+            <a href="#">Forums</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <div class="social-networks">
+          <a href="#" class="twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="google">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <a class="btn btn-default" routerLink='/'>Contact us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>© 2016 Copyright Text </p>
+  </div>
+</footer>
